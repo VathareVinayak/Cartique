@@ -42,13 +42,15 @@
     <div id="demo" class="carousel slide my-3" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        {%for i in range%}
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="{{i}}" aria-label="Slide 2"></button>
+        {% endfor %}
       </div>
 
 
       <!-- Slideshow Starts-->
       <div class="container carousel-inner no-padding">
+
         <div class="carousel-item active">
           <div class="row">
             <div class="col-md-4">
@@ -61,6 +63,9 @@
                 </div>
               </div>
             </div>
+
+            {%for i in product|slice:'1:'%}
+
             <div class="col-md-4">
               <div class="card" style="width: 18rem">
                 <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
@@ -71,16 +76,11 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
+            {% if forloop.counter|divisibleby:3 and forloop.counter > 0%}
+            {% endif %}
+
+            {% endfor %}
+
           </div>
         </div>
 
