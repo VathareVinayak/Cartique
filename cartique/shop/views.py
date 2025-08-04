@@ -6,7 +6,7 @@ def index(request):
     return render(request , 'shop/index.html')
 #about
 def about(request):
-    return HttpResponse("This is the about page. We are the service providers to custermers")
+    return render(request , 'shop/about.html')
 #contact
 def contact(request):
     return HttpResponse("This is the contact page. We are the service providers to custermers")
@@ -19,6 +19,6 @@ def search(request):
 
 def productView(request):
     return HttpResponse("This is the productView page. We are the service providers to custermers")
-
+ 
 def checkout(request):
     return HttpResponse("This is the checkout page. We are the service providers to custermers")
