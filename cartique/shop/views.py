@@ -5,12 +5,17 @@ from math import ceil
 # Create your views here.
 #index
 def index(request):
-    products = Product.objects.all()
-    print(products) 
-    n = len(products)
-    nSlides = n // 4 + ceil((n/4)-(n//4))
-    params = {'no_of_slides':nSlides ,'range': range(1, nSlides),'product':products}
-    return render(request , 'shop/index.html',params)
+    products = list(Product.objects.all())
+    slide_size = 3
+    all_prods = [products[i:i + slide_size] for i in range(0, len(products), slide_size)]
+
+    context = {
+        'product_slides': all_prods,
+        'slide_range': range(len(all_prods)),
+    }
+    return render(request, 'shop/index.html', context)
+
+
 #about
 def about(request):
     return render(request , 'shop/about.html')

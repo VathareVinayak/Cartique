@@ -1,174 +1,81 @@
-{%extends "shop/basic.html" %}
-{% block css%} 
-      .col-md-3 {
-        display: inline-block;
-        margin-left: 4px;
-      }
+{% extends "shop/basic.html" %}
+{% load static %}
 
-      .col-md-3 img {
-        width: 100%;
-        height: auto;
-      }
+{% block css %}
+<style>
+  .col-md-4 {
+    display: inline-block;
+    margin: 0 4px;
+  }
 
-      {% comment %} body .carousel-indicators li {
-        background-color: blue;
-      } {% endcomment %}
+  .col-md-4 img {
+    width: 255px;
+    height: 255px;
+  }
 
-      .carousel-indicators .active {
-        background-color:blue;
-        }
-      body .carousel-indicators{
-        bottom:0;
-      }
+  .carousel-indicators .active {
+    background-color: blue;
+  }
 
-      body .carousel-indicators li {
-        background-color: blue;
-      }
+  .carousel-indicators {
+    bottom: 0;
+  }
 
-      body .carousel-control-prev-icon,
-      body .carousel-control-next-icon {
-        background-color: blue;
-      }
-      body .no-padding {
-        padding-left: 0;
-        padding-right: 0;
-      }
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: blue;
+  }
+
+  .no-padding {
+    padding-left: 0;
+    padding-right: 0;
+  }
+</style>
 {% endblock %}
 
-{% block body%} 
-    {%load static%}
-
-    <div class="container">
-    <div id="demo" class="carousel slide my-3" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        {%for i in range%}
-        <button type="button" data-bs-target="#demo" data-bs-slide-to="{{i}}" aria-label="Slide 2"></button>
-        {% endfor %}
-      </div>
-
-
-      <!-- Slideshow Starts-->
-      <div class="container carousel-inner no-padding">
-
-        <div class="carousel-item active">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            {%for i in product|slice:'1:'%}
-
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            {% if forloop.counter|divisibleby:3 and forloop.counter > 0%}
-            {% endif %}
-
-            {% endfor %}
-
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="carousel-item">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card" style="width: 18rem">
-                <img src="{% static 'shop/test.jpeg'%}" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some text.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        
-      </div>
+{% block body %}
+<div class="container">
+  <div id="demo" class="carousel slide my-3" data-bs-ride="carousel">
+    <h1>Trending Tops</h1>
+    <!-- Indicators -->
+    <div class="carousel-indicators">
+      {% for i in slide_range %}
+        <button type="button" data-bs-target="#demo" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+      {% endfor %}
     </div>
 
-      <!-- Previous button -->
-      <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
+    <!-- Carousel Slides -->
+    <div class="carousel-inner no-padding">
+      {% for slide in product_slides %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+          <div class="row">
+            {% for product in slide %}
+              <div class="col-md-4">
+                <div class="card" style="width: 18rem">
+                  <img src="/media/{{product.image}}" class="card-img-top" alt="{{ product.product_name }}">
+                  <div class="card-body">
+                    <h6 class="card-title">{{ product.product_name }}</h6>
+                    <p class="card-text">{{ product.desc|truncatechars:50 }}</p>
+                    <a href="#" class="btn btn-primary">Add To Cart</a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
 
-      <!-- Next button -->
-      <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+  </div>
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
 
+</div>
 {% endblock %}
