@@ -52,7 +52,7 @@
                       <h5 class="card-title">{{ product.product_name }}</h5>
                       <p class="card-text">{{ product.desc|slice:":50" }}...</p>
                       <p class="card-text"><strong>₹{{ product.price }}</strong></p>
-                      <a href="/shop/productview/{{ product.id }}" class="btn btn-primary">View</a>
+                      <button href="/shop/productview/{{ product.id }}" id="pr{{product.id}}" class="btn btn-primary Cart">Add To Cart</button>
                     </div>
                   </div>
                 </div>
@@ -74,4 +74,27 @@
   {% endfor %}
 </div>
 
+{% endblock %}
+{% block js %} 
+<script>
+  console.log('Happy');
+
+  // Properly initialize Cart object
+  let Cart = JSON.parse(localStorage.getItem('Cart') || '{}');
+
+  $('.Cart').click(function(){
+    console.log('Clicked');
+    var idstr = this.id.toString();  // e.g., 'pr3'
+    console.log(idstr); 
+
+    if (Cart[idstr] !== undefined){
+      Cart[idstr] += 1;
+    } else {
+      Cart[idstr] = 1;
+    }
+
+    localStorage.setItem('Cart', JSON.stringify(Cart));
+    console.log(Cart);
+  });
+</script>
 {% endblock %}
