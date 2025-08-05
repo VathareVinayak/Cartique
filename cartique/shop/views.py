@@ -5,15 +5,20 @@ from math import ceil
 # Create your views here.
 #index
 def index(request):
-    products = list(Product.objects.all())
-    slide_size = 3
-    all_prods = [products[i:i + slide_size] for i in range(0, len(products), slide_size)]
-
-    context = {
-        'product_slides': all_prods,
-        'slide_range': range(len(all_prods)),
-    }
-    return render(request, 'shop/index.html', context)
+    allProds = []
+    catprods = Product.objects.values('category', 'id')
+    cats = {item['category'] for item in catprods}
+    
+    for cat in cats:
+        prod = Product.objects.filter(category=cat)
+        n = len(prod)
+        nSlides = ceil(n / 4)
+        # Group products in sublists of 4 items each
+        prod_chunks = [prod[i:i + 4] for i in range(0, n, 4)]
+        allProds.append([prod_chunks, range(1, nSlides + 1), nSlides, cat])
+    
+    params = {'allProds': allProds}
+    return render(request, 'shop/index.html', params)
 
 
 #about
