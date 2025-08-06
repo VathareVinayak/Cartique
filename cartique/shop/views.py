@@ -31,11 +31,14 @@ def contact(request):
 def tracker(request):
     return HttpResponse("This is the tracker page. We are the service providers to you ,Check FAQ's here ")
 
+# search page
 def search(request):
     return HttpResponse("This is the search page. We are the service providers to custermers")
 
+# product view
 def productView(request):
     return HttpResponse("This is the productView page. We are the service providers to custermers")
- 
+
+# checkout page
 def checkout(request):
     return HttpResponse("This is the checkout page. We are the service providers to custermers")
