@@ -77,24 +77,42 @@
 {% endblock %}
 {% block js %} 
 <script>
-  console.log('Happy');
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log('Happy');
 
-  // Properly initialize Cart object
-  let Cart = JSON.parse(localStorage.getItem('Cart') || '{}');
-
-  $('.Cart').click(function(){
-    console.log('Clicked');
-    var idstr = this.id.toString();  // passing the id of the button
-    console.log(idstr); 
-
-    if (Cart[idstr] !== undefined){
-      Cart[idstr] += 1;
+    // Initialize Cart
+    let Cart = {};
+    if (localStorage.getItem('Cart') === null) {
+      Cart = {};
     } else {
-      Cart[idstr] = 1;
+      Cart = JSON.parse(localStorage.getItem('Cart'));
     }
 
-    localStorage.setItem('Cart', JSON.stringify(Cart));
-    console.log(Cart);
+    // Update cart count with number of unique products
+    function updateCartCount() {
+      let productCount = Object.keys(Cart).length;
+      document.getElementById('cart').innerHTML = productCount;
+    }
+
+    updateCartCount(); // On page load
+
+    // Add to cart button handler
+    $('.Cart').click(function () {
+      console.log('Clicked');
+      let idstr = this.id.toString();
+
+      if (Cart[idstr] !== undefined) {
+        Cart[idstr] += 1;
+      } else {
+        Cart[idstr] = 1;
+      }
+
+      localStorage.setItem('Cart', JSON.stringify(Cart));
+      updateCartCount();
+    });
   });
 </script>
+
+
+
 {% endblock %}
