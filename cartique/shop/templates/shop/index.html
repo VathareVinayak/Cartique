@@ -38,6 +38,7 @@
 <div class="container">
   {% for product_set, slide_range, total_slides, category in allProds %}
     <h3 class="my-4">{{ category|title }}</h3>
+    <div class='row'>
     <div id="carousel{{ forloop.counter }}" class="carousel slide" data-bs-ride="carousel">
 
       <div class="carousel-inner">
@@ -71,6 +72,7 @@
 
     </div>
     <hr>
+  </div>
   {% endfor %}
 </div>
 
@@ -112,7 +114,5 @@
     });
   });
 </script>
-
-
 
 {% endblock %}
