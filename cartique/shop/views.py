@@ -36,8 +36,11 @@ def search(request):
     return render(request , 'shop/search.html')
 
 # product view
-def productView(request):
-    return render(request , 'shop/productview.html')
+def productView(request , myid):
+    # fetch product details
+    product = Product.objects.get(id=myid)
+    print(product)
+    return render(request , 'shop/productview.html', {'product': product})
 
 # checkout page
 def checkout(request):

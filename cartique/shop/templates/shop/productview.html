@@ -1,11 +1,21 @@
 {%extends "shop/basic.html" %}
 
-{% block title%} Shop | Product View {% endblock %}
+{% block title%} {{product.product_name}} {% endblock %}
 
-{% block body%} This is Product View Body 
-
-
-
+{% block body%} 
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <img src="{{ product.image.url }}" class="img-fluid" alt="{{ product.product_name }}">
+    </div>
+    <div class="col-md-6">
+      <h2>{{ product.product_name }}</h2>
+      <p>{{ product.desc }}</p>
+      <p><strong>Price: ₹{{ product.price }}</strong></p>
+      <button id="pr{{product.id}}" class="btn btn-primary Cart">Add To Cart</button>
+      <a href="/shop/checkout"><button class="btn btn-success">Buy Now</button></a>
+    </div>
+  </div>    
 
 {% endblock %}
 

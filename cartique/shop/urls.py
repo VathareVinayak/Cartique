@@ -6,6 +6,6 @@ urlpatterns = [
  path('contact/',views.contact , name='contact'),
  path('tracker/',views.tracker , name='tracker'),
  path('search/',views.search , name='search'),
- path('productview/',views.productView , name='productview'),
+ path('productview/<int:myid>',views.productView , name='productview'),
  path('checkout/',views.checkout , name='Checkout'),
 ]

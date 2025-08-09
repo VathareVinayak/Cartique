@@ -53,7 +53,8 @@
                       <h5 class="card-title">{{ product.product_name }}</h5>
                       <p class="card-text">{{ product.desc|slice:":50" }}...</p>
                       <p class="card-text"><strong>₹{{ product.price }}</strong></p>
-                      <button href="/shop/productview/{{ product.id }}" id="pr{{product.id}}" class="btn btn-primary Cart">Add To Cart</button>
+                      <button id="pr{{product.id}}" class="btn btn-primary Cart">Add To Cart</button>
+                      <a href="/shop/productview/{{ product.id }}"><button id="qv{{product.id}}" class="btn btn-primary Cart">Quick View</button></a>
                     </div>
                   </div>
                 </div>
