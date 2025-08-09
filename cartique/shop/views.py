@@ -26,19 +26,19 @@ def about(request):
     return render(request , 'shop/about.html')
 #contact
 def contact(request):
-    return HttpResponse("This is the contact page. We are the service providers to custermers")
+    return render(request , 'shop/contact.html')
 #tracking page 
 def tracker(request):
-    return HttpResponse("This is the tracker page. We are the service providers to you ,Check FAQ's here ")
+    return render(request , 'shop/tracker.html')
 
 # search page
 def search(request):
-    return HttpResponse("This is the search page. We are the service providers to custermers")
+    return render(request , 'shop/search.html')
 
 # product view
 def productView(request):
-    return HttpResponse("This is the productView page. We are the service providers to custermers")
+    return render(request , 'shop/productview.html')
 
 # checkout page
 def checkout(request):
-    return HttpResponse("This is the checkout page. We are the service providers to custermers")
+    return render(request , 'shop/checkout.html')
