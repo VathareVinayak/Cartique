@@ -1,10 +1,61 @@
-{%extends "shop/basic.html" %}
+{% extends "shop/basic.html" %}
+{% load static %}
 
-{% block title%} Shop | Contact Us {% endblock %}
+{% block title %}Contact Us - My Cart{% endblock %}
 
-{% block body%} This is Contact Us 
+{% block css %}
+.contact-section {
+    background-color: #e1e1e1;
+    padding: 50px 50px;
+}
+.container.contact-section {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.contact-section h2 {
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.contact-section p {
+    font-size: 1.1rem;
+    color: #555;
+}
+.contact-info p {
+    margin: 8px 0;
+}
+{% endblock %}
+
+{% block body %}
+<div class="container contact-section">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+                        <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Whether you have questions, feedback, or need help with your order, our team is here to assist you.</p>
+            
+            <div class="contact-info">
+                <p><strong>📍 Address:</strong> NH4, 123 Cartique Street, Kolhapur , India</p>
+                <p><strong>📞 Phone:</strong> +91 8483952608</p>
+                <p><strong>📧 Email:</strong> work.vinayakvathare@gmail.com</p>
+            </div>
+        </div>
+        <div class="col-md-6 text-center text-md-start">
 
 
-
-
+            <form action="/shop/contact/" method="POST">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary px-4">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
 {% endblock %}

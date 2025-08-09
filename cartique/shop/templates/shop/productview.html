@@ -19,3 +19,50 @@
 
 {% endblock %}
 
+{% block js %} 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    console.log('Happy');
+
+    // Initialize Cart
+    let Cart = {};
+    if (localStorage.getItem('Cart') === null) {
+      Cart = {};
+    } else {
+      Cart = JSON.parse(localStorage.getItem('Cart'));
+    }
+
+    // Update cart count with number of unique products
+    function updateCartCount() {
+      let productCount = Object.keys(Cart).length;
+      document.getElementById('cart').innerHTML = productCount;
+    }
+
+    updateCartCount(); // On page load
+
+    // Add to cart button handler
+    $('.Cart').click(function () {
+      console.log('Clicked');
+      let idstr = this.id.toString();
+
+      if (Cart[idstr] !== undefined) {
+        Cart[idstr] += 1;
+      } else {
+        Cart[idstr] = 1;
+      }
+
+      localStorage.setItem('Cart', JSON.stringify(Cart));
+      updateCartCount();
+    });
+  });
+
+  // Popover of Cart
+    document.addEventListener('DOMContentLoaded', function () {
+        const popover = new bootstrap.Popover(document.getElementById('pop-cart'));
+        popover.show();
+    });
+
+</script>
+
+{% endblock %}
+

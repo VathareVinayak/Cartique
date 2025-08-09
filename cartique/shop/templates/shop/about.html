@@ -1,11 +1,49 @@
-{%extends "shop/basic.html" %}
+{% extends "shop/basic.html" %}
+{% load static %}
 
-{% block title%} AboutUs {% endblock %}
+{% block title %}About Us - My Cart{% endblock %}
 
-{% block body%} This is About Us  
+{% block css %}
+.about-section {
+    background-color: #e1e1e1;
+    padding: 50px 50px;
 
-
-
-
+}
+.container.about-section {
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+.about-section h2 {
+    font-weight: bold;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.about-section p {
+    font-size: 1.1rem;
+    color: #555;
+}
 {% endblock %}
 
+{% block body %}
+<div class="container about-section ">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <img src="{% static 'shop/about-us.jpg' %}" alt="About My Cart" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+            <h2>About My Cart</h2>
+            <p>
+                Welcome to <strong>My Cart</strong> — your one-stop online shop for premium quality products at unbeatable prices. 
+                We believe in making online shopping easy, affordable, and enjoyable for everyone.  
+            </p>
+            <p>
+                Our mission is to bring you the latest trends, top brands, and everyday essentials, all in one place.
+                Whether you’re looking for fashion, electronics, home essentials, or gifts, My Cart has got you covered.  
+            </p>
+            <p>
+                With a commitment to customer satisfaction, we ensure fast delivery, secure payments, and exceptional service.
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

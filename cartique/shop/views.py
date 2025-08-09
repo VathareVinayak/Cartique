@@ -26,6 +26,14 @@ def about(request):
     return render(request , 'shop/about.html')
 #contact
 def contact(request):
+    if(request.method == "POST"):
+        # Handle the contact form submission
+        name = request.POST.get('name','')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        # saving the messages contact details send an email
+        print(f"Name: {name}, Email: {email}, Message: {message}")
+        return HttpResponse("Thank you for contacting us!")
     return render(request , 'shop/contact.html')
 #tracking page 
 def tracker(request):
