@@ -1,38 +1,84 @@
-{%extends "shop/basic.html" %}
-
-{% block title%} Shop | Checkout {% endblock %}
-
-{% block body%} 
+{%extends "shop/basic.html" %} {% block title%} Shop | Checkout {% endblock %}
+{% block body%}
 <div class="container">
+  <div class="col my-4 mx-auto">
     <h2>Step 1 | Checkout</h2>
     <p>Please review your order and provide shipping information.</p>
 
     <div id="items">
-        <ol class="list-group list-group-numbered">
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                Cras justo odio
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                Cras justo odio
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
-            <li class="list-group-item d-flex justify-content-between align-items-start">
-                <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
-                Cras justo odio
-                </div>
-                <span class="badge bg-primary rounded-pill">14</span>
-            </li>
-        </ol>
+      <ol class="list-group list-group-numbered">
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+        <li
+          class="list-group-item d-flex justify-content-between align-items-start"
+        >
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Subheading</div>
+            Cras justo odio
+          </div>
+          <span class="badge bg-primary rounded-pill">14</span>
+        </li>
+      </ol>
     </div>
+  </div>
+  <div class="col my-4 mx-auto">
+    <h2>Step 2 | User Information</h2>
+    <p>Provide Information for shipping.</p>
+    <form class="row g-3">
+    <div class="col-md-6">
+        <label for="inputname" class="form-label">Name</label>
+        <input type="text" class="form-control" placeholder="John" id="inputname">
+    </div>
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" placeholder="eg@example.com" id="inputEmail4">
+    </div>
+
+    <div class="col-12">
+        <label for="inputAddress" class="form-label">Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address..">
+    </div>
+    <div class="col-12">
+        <label for="inputAddress2" class="form-label">Address 2</label>
+        <input type="text" class="form-control" id="inputAddress2" placeholder="Enter Address 2..">
+    </div>
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity" placeholder="Enter City..">
+    </div>
+    <div class="col-md-4">
+        <label for="inputState" class="form-label">State</label>
+        <input type="text" class="form-control" id="inputState" placeholder="Enter State..">
+    </div>
+    <div class="col-md-2">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" placeholder="Enter Zip..">
+    </div>
+        <div class="col-md-2">
+        <label for="inputtel" class="form-label">Phone Number</label>
+        <input type="tel" class="form-control" id="inputPhone" placeholder="Enter Phone Number..">
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Checkout</button>
+    </div>
+</form>
+  </div>
 </div>
 
 {% endblock %}
-
