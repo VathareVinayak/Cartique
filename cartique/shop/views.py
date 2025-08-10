@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Product
+from .models import Product , Contact
 from math import ceil
 # Create your views here.
 #index
@@ -33,6 +33,8 @@ def contact(request):
         message = request.POST.get('message')
         # saving the messages contact details send an email
         print(f"Name: {name}, Email: {email}, Message: {message}")
+        contact = Contact(name=name, email=email, message=message)
+        contact.save()
         return HttpResponse("Thank you for contacting us!")
     return render(request , 'shop/contact.html')
 #tracking page 
